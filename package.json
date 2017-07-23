@@ -4,7 +4,11 @@
   "description": "A test of a heroku client -(socketIO)- web -(rabbitMQ)- worker",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify client/index.js -o public/index.js",
+    "debug": "npm run watch & npm run nodemon",
+    "nodemon": "nodemon web.js",
+    "heroku-postbuild": "browserify client/index.js -o public/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,15 @@
   "bugs": {
     "url": "https://github.com/psomialbert/client-web-worker/issues"
   },
-  "homepage": "https://github.com/psomialbert/client-web-worker#readme"
+  "homepage": "https://github.com/psomialbert/client-web-worker#readme",
+  "dependencies": {
+    "browserify": "^14.4.0",
+    "bufferutil": "3.0.2",
+    "express": "4.15.3",
+    "express-ws": "^3.0.0",
+    "jackrabbit": "^4.3.0",
+    "utf-8-validate": "3.0.3",
+    "watchify": "^3.9.0",
+    "ws": "3.0.0"
+  }
 }
